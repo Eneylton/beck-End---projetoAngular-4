@@ -45,12 +45,8 @@ public class AlunoService {
 
 
 	public Aluno update(Aluno obj) {
-		Aluno newObj = find(obj.getId());
-		newObj.getContatos().clear();
-		newObj.getContatos().addAll(obj.getContatos());
-		newObj.getContatos().forEach(c -> c.setAluno(newObj));
-		
-		return repo.save(newObj);
+		find(obj.getId());
+		return repo.save(obj);
 	}
 	
 	public List<Aluno> findAll() {
